@@ -1,0 +1,181 @@
+<manager>
+    TelaLogin:
+    TelaCadas:
+    MenuPrin:
+
+<TelaLogin>:
+    name:'Tlogin'
+    FloatLayout:
+        canvas:
+            BorderImage:
+                source:'Fundao.jpg'
+                size: self.size
+                pos: self.pos
+
+        Image:
+            size_hint: 1, .3
+            pos_hint: {"y":.6}
+            source:'icob.png'
+
+        Label:
+            text:'USUARIO'
+            size_hint: .05,None
+            pos_hint:{"x":.10,"y":.451}
+            font_style: 'Roboto-Bold'
+
+        Label:
+            text:'SENHA'
+            size_hint: 0.05,None
+            pos_hint:{"x":.10,"y":.351}
+
+        TextInput:
+            id:usuario
+            size_hint: .5,None
+            pos_hint: {"x":.25,"y":.5}
+            size:50,30
+            text_size:40
+            multiline:False
+
+        TextInput:
+            id:senha
+            size_hint: .5,None
+            pos_hint: {"x":.25,"y":.4}
+            size:50,30
+            password:True
+            multiline:False
+            textsize:48
+
+        Button:
+            id:login
+            text:'Login'
+            size_hint: .05,None
+            pos_hint: {"x":.35,"y":.30}
+            size_hint:.3,.07
+            on_release:root.pegad()
+
+        Button:
+            id:cadas
+            text:'Cadastre-se aqui'
+            font_size:'12'
+            size_hint: .05,None
+            pos_hint: {"x":.35,"y":.20}
+            size_hint:.3,.07
+            on_release:
+                root.manager.current = 'Tcadas'
+
+        Label:
+            id:teste
+            text:
+
+<TelaCadas>:
+
+    name:'Tcadas'
+    ScrollView:
+        FloatLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height:800
+
+            canvas:
+                BorderImage:
+                    source:'Fundao.jpg'
+                    size: self.size
+                    pos: self.pos
+
+            Label:
+                id:usuario
+                text:'USUARIO'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.8}
+                font_style: 'Roboto-Bold'
+
+            Label:
+                id:senha
+                text:'SENHA'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.7}
+
+            Label:
+                text:'IDADE'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.6}
+
+            Label:
+                id:email
+                text:'E-MAIL'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.5}
+
+            Label:
+                text:'CIDADE'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.4}
+
+            Label:
+                id:endereco
+                text:'ENDERECO'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.3}
+
+            Label:
+                text:'SEXO'
+                size_hint: .05,.1
+                pos_hint:{"x":.2,"y":.2}
+
+            TextInput:
+                id:usuario
+                text:''
+                size_hint: .5,None
+                pos_hint: {"x":.35,"y":.825}
+                size:50,30
+                multiline:False
+
+            TextInput:
+                id:senha
+                size_hint: .5,None
+                pos_hint: {"x":.35,"y":.725}
+                size:50,30
+                password:True
+                multiline:False
+
+            TextInput:
+                id:idade
+                size_hint: .1,None
+                pos_hint: {"x":.35,"y":.625}
+                size:30,30
+                multiline:False
+
+            TextInput:
+                id:email
+                size_hint: .5,None
+                pos_hint: {"x":.35,"y":.525}
+                size:50,30
+                multiline:False
+
+
+            Button:
+                text:'Cadastrar'
+                size_hint:.3, None
+                pos_hint: {"x":.1,"y":.07}
+                size: 50,50
+                on_release:
+                    root.clear()
+                    root.Icadas()
+
+            Button:
+                text:'Cancelar'
+                size_hint:.3, None
+                pos_hint: {"x":.6,"y":.07}
+                size: 50,50
+                on_release:
+                    root.voltal()
+                    root.ids.usuario.text= ''
+                    root.ids.senha.text = ''
+                    root.ids.email.text = ''
+                    root.ids.endereco.text = ''
+<MenuPrin>
+
+    name:'Tmenu'
+    GridLayout:
+        Button:
+            text:'Pedir ajuda'
